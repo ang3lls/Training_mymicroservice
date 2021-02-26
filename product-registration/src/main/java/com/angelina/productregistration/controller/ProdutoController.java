@@ -14,7 +14,7 @@ import java.util.List;
 public class ProdutoController {
 
     @Autowired
-    ProdutoService produtoService;
+    private ProdutoService produtoService;
 
     @PostMapping("/save")
     public ResponseEntity<Produto> saveProduto(@RequestBody Produto produto){

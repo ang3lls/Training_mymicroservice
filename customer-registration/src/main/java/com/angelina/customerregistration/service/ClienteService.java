@@ -1,6 +1,5 @@
 package com.angelina.customerregistration.service;
 
-import com.angelina.customerregistration.dto.ClienteDTO;
 import com.angelina.customerregistration.model.Cliente;
 import com.angelina.customerregistration.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,15 +11,12 @@ import java.util.List;
 public class ClienteService {
 
     @Autowired
-    ClienteRepository clienteRepository;
-
-    @Autowired
-    private Cliente Cliente;
+    private ClienteRepository clienteRepository;
 
 
     public Cliente validarCPF(String cpf){
         if(cpf.equals(cpf)){
-            return Cliente;
+            return new Cliente();
         }
         return null;
     }
@@ -30,8 +26,7 @@ public class ClienteService {
     }
 
     public Cliente bucarClientePeloId(int id){
-        Cliente cliente = clienteRepository.getOne(id);
-        return Cliente;
+        return clienteRepository.getOne(id);
     }
 
     public List<Cliente> buscarTodosClientes(){

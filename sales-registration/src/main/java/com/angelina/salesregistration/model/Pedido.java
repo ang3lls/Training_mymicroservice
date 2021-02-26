@@ -1,23 +1,28 @@
 package com.angelina.salesregistration.model;
 
+import com.angelina.salesregistration.dto.ClienteDTO;
+import com.angelina.salesregistration.dto.ProdutoDTO;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Data;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
+@Data
 @Table(name = "TABLE_PEDIDO_VENDA")
 public class Pedido {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_pedido")
-    public int idPedido;
+    public Integer idPedido;
 
-    @OneToMany
-    @JoinColumn(name = "id_cliente")
-    public int idCliente;
+    @Transient
+    public ClienteDTO cliente_id;
 
-    //@OneToMany
-   // @JoinColumn(name = "lista_ids_produtos")
-    //public List<Produto> idsProdutos;
+    @Transient
+    public List<ProdutoDTO> idsProdutos;
 
     @Column(name = "valor_total")
     public float valorTotal;

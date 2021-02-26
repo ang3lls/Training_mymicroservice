@@ -14,7 +14,7 @@ import java.util.List;
 public class ClienteController {
 
     @Autowired
-    ClienteService clienteService;
+    private ClienteService clienteService;
 
     @GetMapping("/cpf/{cpf}")
     public ResponseEntity<Cliente> validateCpf(@PathVariable String cpf){

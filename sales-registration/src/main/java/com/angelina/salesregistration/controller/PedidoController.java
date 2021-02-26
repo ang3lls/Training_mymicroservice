@@ -14,19 +14,19 @@ import java.util.List;
 public class PedidoController {
 
     @Autowired
-    SalesService salesService;
+    private SalesService salesService;
 
     @PostMapping("/save")
     public ResponseEntity<Pedido> savePedido(@RequestBody Pedido pedido){
         return ResponseEntity.status(HttpStatus.CREATED).body(salesService.gravarPedido(pedido));
     }
 
-    @GetMapping()
+    @GetMapping("/id/{id}")
     public ResponseEntity<Pedido> findPedido(@PathVariable int id){
         return ResponseEntity.status(HttpStatus.FOUND).body(salesService.buscarPedidoId(id));
     }
 
-    @GetMapping()
+    @GetMapping("/find-all")
     public List<Pedido> findAllPedidos(){
         return salesService.buscarTodosPedidos();
     }

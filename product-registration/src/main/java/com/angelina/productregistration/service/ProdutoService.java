@@ -3,13 +3,15 @@ package com.angelina.productregistration.service;
 import com.angelina.productregistration.model.Produto;
 import com.angelina.productregistration.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class ProdutoService {
 
     @Autowired
-    ProdutoRepository produtoRepository;
+    private ProdutoRepository produtoRepository;
 
     public Produto gravarProduto(Produto produto){
         return produtoRepository.save(produto);
