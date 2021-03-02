@@ -13,12 +13,12 @@ public class ClienteService {
     @Autowired
     private ClienteRepository clienteRepository;
 
+    @Autowired
+    private ValidaCPF validaCPF;
 
-    public Cliente validarCPF(String cpf){
-        if(cpf.equals(cpf)){
-            return new Cliente();
-        }
-        return null;
+
+    public ValidaCPF validarCPF(String cpf){
+        return validaCPF;
     }
 
     public Cliente gravarCliente(Cliente cliente){
