@@ -24,6 +24,9 @@ public class Pedido {
     @Transient
     public ClienteDTO cliente_id;
 
+    @Column(name = "id_cliente")
+    private Integer idCliente;
+
     @Transient
     public List<ProdutoDTO> idsProdutos;
 
@@ -31,9 +34,9 @@ public class Pedido {
     @Column(name = "valor_total")
     public float valorTotal;
 
-    @ApiModelProperty(value = "Tipo do pagamento", example = "true")
+    @ApiModelProperty(value = "Tipo do pagamento", example = "AVISTA, CARTAO")
     @Column(name = "tipo_pagamento")
-    public boolean tipoPagamento;
+    public String tipoPagamento;
 
     @ApiModelProperty(value = "Valor de desconto", example = "15")
     @Column(name = "valor_desconto")

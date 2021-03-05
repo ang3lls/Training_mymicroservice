@@ -13,12 +13,8 @@ public class ClienteService {
     @Autowired
     private ClienteRepository clienteRepository;
 
-    @Autowired
-    private ValidaCPF validaCPF;
-
-
-    public ValidaCPF validarCPF(String cpf){
-        return validaCPF;
+    public boolean validarCPF(String cpf){
+        return ValidaCPF.ok(cpf);
     }
 
     public Cliente gravarCliente(Cliente cliente){

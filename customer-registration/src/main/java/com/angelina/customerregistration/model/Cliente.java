@@ -9,8 +9,8 @@ import javax.persistence.*;
 @Entity
 @Data
 @ApiModel(description = "Representação de um cliente")
-@Table(name = "TABLE_CLIENTES")
-public class Cliente {
+@Table(name = "Cliente")
+public class Cliente implements AutoCloseable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -33,4 +33,9 @@ public class Cliente {
     @Column(name = "cpf_cliente")
     @ApiModelProperty(value = "CPF do cliente", example = "222222222-22")
     public String cpf;
+
+    @Override
+    public void close() throws Exception {
+
+    }
 }

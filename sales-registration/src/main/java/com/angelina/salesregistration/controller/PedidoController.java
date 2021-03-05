@@ -1,5 +1,6 @@
 package com.angelina.salesregistration.controller;
 
+import com.angelina.salesregistration.dto.PedidoDTO;
 import com.angelina.salesregistration.model.Pedido;
 import com.angelina.salesregistration.service.SalesService;
 import io.swagger.annotations.Api;
@@ -26,7 +27,7 @@ public class PedidoController {
     @ApiOperation(value = "Salvar pedido feito por Cliente")
     @PostMapping("/save")
     public ResponseEntity<Pedido> savePedido(@RequestBody @ApiParam(name = "Corpo", value =
-            "Representação de um novo pedido") Pedido pedido){
+            "Representação de um novo pedido") PedidoDTO pedido){
         return ResponseEntity.status(HttpStatus.CREATED).body(salesService.gravarPedido(pedido));
     }
 
@@ -34,7 +35,7 @@ public class PedidoController {
     @GetMapping("/id/{id}")
     public ResponseEntity<Pedido> findPedido(@PathVariable @ApiParam (value =
             "Id de um pedido", example = "1") int id){
-        return ResponseEntity.status(HttpStatus.FOUND).body(salesService.buscarPedidoId(id));
+        return ResponseEntity.status(HttpStatus.OK).body(salesService.buscarPedidoId(id));
     }
 
     @ApiOperation(value = "Buscar todos os pedidos")

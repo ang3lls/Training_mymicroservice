@@ -1,5 +1,6 @@
 package com.angelina.customerregistration.controller;
 
+import com.angelina.customerregistration.dto.ClienteDTO;
 import com.angelina.customerregistration.model.Cliente;
 import com.angelina.customerregistration.service.ClienteService;
 import com.angelina.customerregistration.service.ValidaCPF;
@@ -21,9 +22,9 @@ public class ClienteController {
     @Autowired
     private ClienteService clienteService;
 
-    @ApiOperation(value = "Buscar cliente pelo cpf")
+    @ApiOperation(value = "Buscar cliente pelo CPF")
     @GetMapping("/cpf/{cpf}")
-    public ResponseEntity<ValidaCPF> validateCpf(@PathVariable @ApiParam
+    public ResponseEntity<Boolean> validateCpf(@PathVariable @ApiParam
             (name = "CPF", value = "CPF de um cliente", example = "222222222-22") String cpf){
         return ResponseEntity.status(HttpStatus.OK).body(clienteService.validarCPF(cpf));
     }
@@ -37,9 +38,13 @@ public class ClienteController {
 
     @ApiOperation(value = "Bucar cliente pelo id")
     @GetMapping("/id/{id}")
-    public ResponseEntity<Cliente> findCliente(@PathVariable @ApiParam (value =
+    public ResponseEntity<ClienteDTO> findCliente(@PathVariable @ApiParam (value =
             "Id de um cliente", example = "1") int id){
-        return ResponseEntity.status(HttpStatus.FOUND).body(clienteService.bucarClientePeloId(id));
+        Cliente cliente = clienteService.bucarClientePeloId(id);
+
+        ClienteDTO dto = new ClienteDTO(cliente.getIdCliente(), cliente.getNome(),cliente.getIdade(),
+                cliente.getEmail(), cliente.getCpf());
+        return cliente != null ? ResponseEntity.ok(dto) : ResponseEntity.notFound().build();
     }
 
     @ApiOperation(value = "Buscar todos clientes")

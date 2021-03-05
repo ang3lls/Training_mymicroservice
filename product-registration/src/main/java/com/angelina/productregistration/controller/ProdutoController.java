@@ -31,7 +31,7 @@ public class ProdutoController {
     @GetMapping("/id/{id}")
     public ResponseEntity<Produto> findProduto(@PathVariable @ApiParam (value =
             "Id de um produto", example = "1")int id){
-        return ResponseEntity.status(HttpStatus.FOUND).body(produtoService.buscarProdutoPeloID(id));
+        return ResponseEntity.status(HttpStatus.OK).body(produtoService.buscarProdutoPeloID(id));
     }
 
     @ApiOperation(value = "Buscar por todos os produtos")
