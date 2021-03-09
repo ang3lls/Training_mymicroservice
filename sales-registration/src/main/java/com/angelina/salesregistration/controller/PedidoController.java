@@ -27,7 +27,7 @@ public class PedidoController {
     @ApiOperation(value = "Salvar pedido feito por Cliente")
     @PostMapping("/save")
     public ResponseEntity<Pedido> savePedido(@RequestBody @ApiParam(name = "Corpo", value =
-            "Representação de um novo pedido") PedidoDTO pedido){
+            "Representação de um novo pedido") PedidoDTO pedido) throws Exception {
         return ResponseEntity.status(HttpStatus.CREATED).body(salesService.gravarPedido(pedido));
     }
 

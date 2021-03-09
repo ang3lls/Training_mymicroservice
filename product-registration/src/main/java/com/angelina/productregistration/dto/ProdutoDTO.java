@@ -1,22 +1,25 @@
 package com.angelina.productregistration.dto;
 
 public class ProdutoDTO {
-    private int id;
+    private Integer id;
+    private Integer quantidade;
     private String descricao;
-    private float valoUnitario;
+    private float valorUnitario;
 
-    public ProdutoDTO(int id, String descricao, float valoUnitario) {
-        this.id = id;
-        this.descricao = descricao;
-        this.valoUnitario = valoUnitario;
-    }
-
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(Integer quantidade) {
+        this.quantidade = quantidade;
     }
 
     public String getDescricao() {
@@ -27,11 +30,11 @@ public class ProdutoDTO {
         this.descricao = descricao;
     }
 
-    public float getValoUnitario() {
-        return valoUnitario;
+    public float getValorUnitario() {
+        return valorUnitario;
     }
 
-    public void setValoUnitario(float valoUnitario) {
-        this.valoUnitario = valoUnitario;
+    public void setValorUnitario(float valorUnitario) {
+        this.valorUnitario = valorUnitario;
     }
 }

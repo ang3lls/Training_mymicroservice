@@ -12,12 +12,12 @@ import java.util.List;
 @Entity
 @Data
 @ApiModel(description = "Representação de um pedido feito por um cliente")
-@Table(name = "TABLE_PEDIDO_VENDA")
+@Table(name = "pedido")
 public class Pedido {
 
     @Id
     @ApiModelProperty(value = "Id do pedido", example = "1")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_pedido")
     public Integer idPedido;
 
@@ -40,7 +40,7 @@ public class Pedido {
 
     @ApiModelProperty(value = "Valor de desconto", example = "15")
     @Column(name = "valor_desconto")
-    public int valorDesconto;
+    public float valorDesconto;
 
     @ApiModelProperty(value = "Valor total do pagamento", example = "20,50")
     @Column(name = "valor_pagamento")

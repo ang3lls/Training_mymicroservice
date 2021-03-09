@@ -1,21 +1,14 @@
 package com.angelina.salesregistration.dto;
 
-import com.angelina.salesregistration.model.enums.TipoPagamentoEnum;
 
 import java.util.List;
 
 public class PedidoDTO {
     public int idCliente;
-    public List<ProdutoDTO> idsProdutos;
+    public List<ProdutoPedidoDTO> produtos;
     public String tipoPagamento;
     public int valorDesconto;
 
-    public PedidoDTO(int idCliente, List<ProdutoDTO> idsProdutos, String tipoPagamento, int valorDesconto) {
-        this.idCliente = idCliente;
-        this.idsProdutos = idsProdutos;
-        this.tipoPagamento = tipoPagamento;
-        this.valorDesconto = valorDesconto;
-    }
 
     public int getIdCliente() {
         return idCliente;
@@ -25,12 +18,12 @@ public class PedidoDTO {
         this.idCliente = idCliente;
     }
 
-    public List<ProdutoDTO> getIdsProdutos() {
-        return idsProdutos;
+    public List<ProdutoPedidoDTO> getProdutos() {
+        return produtos;
     }
 
-    public void setIdsProdutos(List<ProdutoDTO> idsProdutos) {
-        this.idsProdutos = idsProdutos;
+    public void setProdutos(List<ProdutoPedidoDTO> produtos) {
+        this.produtos = produtos;
     }
 
     public String getTipoPagamento() {

@@ -9,11 +9,11 @@ import javax.persistence.*;
 @Entity
 @Data
 @ApiModel(description = "Representação de um cliente")
-@Table(name = "Cliente")
+@Table(name = "cliente")
 public class Cliente implements AutoCloseable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @ApiModelProperty(value = "Id do cliente", example = "1")
     @Column(name = "id_cliente")
     private Integer idCliente;
@@ -30,7 +30,7 @@ public class Cliente implements AutoCloseable {
     @ApiModelProperty(value = "Email do cliente", example = "angelina@cadmus.com.br")
     public String email;
 
-    @Column(name = "cpf_cliente")
+    @Column(name = "cpf")
     @ApiModelProperty(value = "CPF do cliente", example = "222222222-22")
     public String cpf;
 

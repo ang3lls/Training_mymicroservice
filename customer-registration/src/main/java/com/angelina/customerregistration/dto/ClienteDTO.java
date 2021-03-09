@@ -15,6 +15,10 @@ public class ClienteDTO {
         this.cpf = cpf;
     }
 
+    public ClienteDTO() {
+
+    }
+
     public int getId() {
         return id;
     }

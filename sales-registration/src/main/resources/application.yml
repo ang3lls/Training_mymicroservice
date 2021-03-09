@@ -9,10 +9,10 @@ spring:
       ddl-auto: none
   properties:
     hibernate:
-    dialect: org.hibernate.dialect.MySQL8Dialect
+      dialect: org.hibernate.dialect.MySQL8Dialect
   jmx:
     enabled: false
   datasource:
-    url: jdbc:mysql://localhost:3306/microservico_vendas?allowPublicKeyRetrieval=true&sslMode=DISABLED
+    url: jdbc:mysql://localhost:3306/microservico_pedido?allowPublicKeyRetrieval=true&sslMode=DISABLED
     username: root
     password: password

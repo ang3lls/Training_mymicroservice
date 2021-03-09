@@ -42,9 +42,15 @@ public class ClienteController {
             "Id de um cliente", example = "1") int id){
         Cliente cliente = clienteService.bucarClientePeloId(id);
 
-        ClienteDTO dto = new ClienteDTO(cliente.getIdCliente(), cliente.getNome(),cliente.getIdade(),
-                cliente.getEmail(), cliente.getCpf());
-        return cliente != null ? ResponseEntity.ok(dto) : ResponseEntity.notFound().build();
+        ClienteDTO dto = null;
+        if(cliente == null){
+            dto = new ClienteDTO();
+        }
+        else{
+            dto = new ClienteDTO(cliente.getIdCliente(), cliente.getNome(), cliente.getIdade(),
+                    cliente.getEmail(), cliente.getCpf());
+        }
+        return ResponseEntity.ok(dto);
     }
 
     @ApiOperation(value = "Buscar todos clientes")

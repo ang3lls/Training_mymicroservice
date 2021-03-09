@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "ProdutoVendas")
+@Table(name = "produtopedido")
 @Data
 @IdClass(ProdutoPedidoId.class)
 public class ProdutoPedido {

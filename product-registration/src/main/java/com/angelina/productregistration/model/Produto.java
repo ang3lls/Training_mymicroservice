@@ -9,11 +9,11 @@ import javax.persistence.*;
 @Entity
 @Data
 @ApiModel(description = "Representação de um produto")
-@Table(name = "TABLE_PRODUTOS")
+@Table(name = "produto")
 public class Produto {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @ApiModelProperty(value = "Id do produto", example = "1")
     @Column(name = "id_produto")
     public Integer idProduto;

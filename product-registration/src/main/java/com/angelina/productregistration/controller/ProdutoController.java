@@ -1,5 +1,6 @@
 package com.angelina.productregistration.controller;
 
+import com.angelina.productregistration.dto.ProdutoDTO;
 import com.angelina.productregistration.model.Produto;
 import com.angelina.productregistration.service.ProdutoService;
 import io.swagger.annotations.Api;
@@ -23,14 +24,15 @@ public class ProdutoController {
     @ApiOperation(value = "Salvar produto")
     @PostMapping("/save")
     public ResponseEntity<Produto> saveProduto(@RequestBody @ApiParam(name = "Corpo",
-            value = "Representação de um novo produto") Produto produto){
-        return ResponseEntity.status(HttpStatus.CREATED).body(produtoService.gravarProduto(produto));
+            value = "Representação de um novo produto") ProdutoDTO produtoDTO){
+        return ResponseEntity.status(HttpStatus.CREATED).body(produtoService.gravarProduto(produtoDTO));
     }
 
     @ApiOperation(value = "Buscar produto por id")
     @GetMapping("/id/{id}")
     public ResponseEntity<Produto> findProduto(@PathVariable @ApiParam (value =
             "Id de um produto", example = "1")int id){
+
         return ResponseEntity.status(HttpStatus.OK).body(produtoService.buscarProdutoPeloID(id));
     }
 

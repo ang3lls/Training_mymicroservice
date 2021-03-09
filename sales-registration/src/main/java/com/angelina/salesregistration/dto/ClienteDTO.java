@@ -7,14 +7,6 @@ public class ClienteDTO {
     private String email;
     private String cpf;
 
-    public ClienteDTO(int id, String nome, int idade, String email, String cpf) {
-        this.id = id;
-        this.nome = nome;
-        this.idade = idade;
-        this.email = email;
-        this.cpf = cpf;
-    }
-
     public int getId() {
         return id;
     }
