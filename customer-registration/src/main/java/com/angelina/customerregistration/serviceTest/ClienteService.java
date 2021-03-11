@@ -1,4 +1,4 @@
-package com.angelina.customerregistration.service;
+package com.angelina.customerregistration.serviceTest;
 
 import com.angelina.customerregistration.model.Cliente;
 import com.angelina.customerregistration.repository.ClienteRepository;

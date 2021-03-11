@@ -1,6 +1,5 @@
-package com.angelina.productregistration.service;
+package com.angelina.productregistration.serviceTest;
 
-import com.angelina.productregistration.dto.ProdutoDTO;
 import com.angelina.productregistration.model.Produto;
 import com.angelina.productregistration.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,11 +14,11 @@ public class ProdutoService {
     @Autowired
     private ProdutoRepository produtoRepository;
 
-    public Produto gravarProduto(ProdutoDTO produtoDTO){
-        Produto produto = new Produto();
-        produto.setDescricao(produtoDTO.getDescricao());
-        produto.setValorUnitario(produtoDTO.getValorUnitario());
-        return produtoRepository.save(produto);
+    public Produto gravarProduto(Produto produto){
+        Produto novoProduto = new Produto();
+        novoProduto.setDescricao(produto.getDescricao());
+        novoProduto.setValorUnitario(produto.getValorUnitario());
+        return produtoRepository.save(novoProduto);
     }
 
     public Produto buscarProdutoPeloID(int id){

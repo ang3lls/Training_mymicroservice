@@ -9,6 +9,14 @@ public class PedidoDTO {
     public String tipoPagamento;
     public int valorDesconto;
 
+    public PedidoDTO(int idCliente, List<ProdutoPedidoDTO> produtos, String tipoPagamento, int valorDesconto) {
+
+    }
+
+    public PedidoDTO() {
+
+    }
+
 
     public int getIdCliente() {
         return idCliente;

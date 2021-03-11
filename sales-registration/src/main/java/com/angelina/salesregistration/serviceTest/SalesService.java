@@ -1,4 +1,4 @@
-package com.angelina.salesregistration.service;
+package com.angelina.salesregistration.serviceTest;
 
 import com.angelina.salesregistration.dto.ClienteDTO;
 import com.angelina.salesregistration.dto.PedidoDTO;
@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class SalesService {
@@ -35,7 +36,7 @@ public class SalesService {
     public Pedido gravarPedido(PedidoDTO pedidoDTO) throws Exception {
         //Validar se o cliente existe
         ClienteDTO clienteDTO = requestCustomer.consultarClienteById(pedidoDTO.getIdCliente());
-        if(clienteDTO.getId() < 1){
+        if(clienteDTO == null && clienteDTO.getId() < 1){
             throw new Exception("Usuário não encontrado");
         }
 
@@ -98,7 +99,12 @@ public class SalesService {
     }
 
     public Pedido buscarPedidoId(int id){
-        return pedidoRepository.getOne(id);
+        Optional<Pedido> pedido = pedidoRepository.findById(id);
+        if(pedido.isEmpty()){
+            return null;
+        }
+
+        return pedido.get();
     }
     
     public List<Pedido> buscarTodosPedidos(){

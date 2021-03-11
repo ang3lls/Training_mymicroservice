@@ -1,4 +1,4 @@
-package com.angelina.customerregistration.service;
+package com.angelina.customerregistration.serviceTest;
 
 public class ValidaCPF {
     public static boolean ok(String cpf){

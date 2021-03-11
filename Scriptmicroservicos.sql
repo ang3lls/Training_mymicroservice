@@ -11,6 +11,8 @@ create table cliente(
     primary key(id_cliente)
 );
 
+SELECT * FROM cliente;
+
 drop database if exists microservico_produto;
 create database microservico_produto;
 use microservico_produto;

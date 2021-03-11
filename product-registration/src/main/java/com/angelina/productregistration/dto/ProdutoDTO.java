@@ -6,6 +6,10 @@ public class ProdutoDTO {
     private String descricao;
     private float valorUnitario;
 
+    public ProdutoDTO(int id, int quantidade, String café_extraforte, float valorUnitario) {
+
+    }
+
     public Integer getId() {
         return id;
     }
