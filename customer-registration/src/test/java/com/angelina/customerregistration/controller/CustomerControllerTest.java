@@ -1,11 +1,10 @@
-package com.angelina.customerregistration.controllerTest;
+package com.angelina.customerregistration.controller;
 
 import com.angelina.customerregistration.CustomerRegistrationApplication;
-import com.angelina.customerregistration.controller.ClienteController;
 import org.junit.jupiter.api.Test;
 import com.angelina.customerregistration.dto.ClienteDTO;
 import com.angelina.customerregistration.repository.ClienteRepository;
-import com.angelina.customerregistration.serviceTest.ClienteService;
+import com.angelina.customerregistration.service.ClienteService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

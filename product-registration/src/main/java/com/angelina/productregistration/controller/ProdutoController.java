@@ -1,7 +1,7 @@
 package com.angelina.productregistration.controller;
 
 import com.angelina.productregistration.model.Produto;
-import com.angelina.productregistration.serviceTest.ProdutoService;
+import com.angelina.productregistration.service.ProdutoService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;

@@ -1,4 +1,4 @@
-package com.angelina.productregistration.serviceTest;
+package com.angelina.productregistration.service;
 
 import com.angelina.productregistration.model.Produto;
 import com.angelina.productregistration.repository.ProdutoRepository;
@@ -62,7 +62,7 @@ public class ProductServiceTest {
     public void buscarProdutoNuloPeloIdTest(){
         Produto produto = produtoService.buscarProdutoPeloID(1);
 
-        Assert.assertNull(produto);
+        Assert.assertNull(produto.getIdProduto());
     }
 
     @Test

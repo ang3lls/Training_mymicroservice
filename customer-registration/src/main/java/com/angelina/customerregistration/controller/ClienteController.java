@@ -2,7 +2,7 @@ package com.angelina.customerregistration.controller;
 
 import com.angelina.customerregistration.dto.ClienteDTO;
 import com.angelina.customerregistration.model.Cliente;
-import com.angelina.customerregistration.serviceTest.ClienteService;
+import com.angelina.customerregistration.service.ClienteService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;

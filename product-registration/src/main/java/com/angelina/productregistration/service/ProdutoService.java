@@ -1,4 +1,4 @@
-package com.angelina.productregistration.serviceTest;
+package com.angelina.productregistration.service;
 
 import com.angelina.productregistration.model.Produto;
 import com.angelina.productregistration.repository.ProdutoRepository;

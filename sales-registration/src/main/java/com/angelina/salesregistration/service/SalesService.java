@@ -1,4 +1,4 @@
-package com.angelina.salesregistration.serviceTest;
+package com.angelina.salesregistration.service;
 
 import com.angelina.salesregistration.dto.ClienteDTO;
 import com.angelina.salesregistration.dto.PedidoDTO;
@@ -36,7 +36,7 @@ public class SalesService {
     public Pedido gravarPedido(PedidoDTO pedidoDTO) throws Exception {
         //Validar se o cliente existe
         ClienteDTO clienteDTO = requestCustomer.consultarClienteById(pedidoDTO.getIdCliente());
-        if(clienteDTO == null && clienteDTO.getId() < 1){
+        if(clienteDTO == null || clienteDTO.getId() < 1){
             throw new Exception("Usuário não encontrado");
         }
 

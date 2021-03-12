@@ -1,10 +1,9 @@
-package com.angelina.salesregistration.controllerTest;
+package com.angelina.salesregistration.controller;
 
-import com.angelina.salesregistration.controller.PedidoController;
 import com.angelina.salesregistration.SalesRegistrationApplication;
 import com.angelina.salesregistration.dto.PedidoDTO;
 import com.angelina.salesregistration.repository.PedidoRepository;
-import com.angelina.salesregistration.serviceTest.SalesService;
+import com.angelina.salesregistration.service.SalesService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;

@@ -3,7 +3,7 @@ package com.angelina.productregistration.controller;
 import com.angelina.productregistration.ProductRegistrationApplication;
 import com.angelina.productregistration.dto.ProdutoDTO;
 import com.angelina.productregistration.repository.ProdutoRepository;
-import com.angelina.productregistration.serviceTest.ProdutoService;
+import com.angelina.productregistration.service.ProdutoService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;

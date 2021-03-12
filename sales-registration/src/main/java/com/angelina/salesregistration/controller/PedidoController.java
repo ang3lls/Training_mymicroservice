@@ -2,7 +2,7 @@ package com.angelina.salesregistration.controller;
 
 import com.angelina.salesregistration.dto.PedidoDTO;
 import com.angelina.salesregistration.model.Pedido;
-import com.angelina.salesregistration.serviceTest.SalesService;
+import com.angelina.salesregistration.service.SalesService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;

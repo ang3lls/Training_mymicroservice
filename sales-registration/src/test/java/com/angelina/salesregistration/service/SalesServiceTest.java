@@ -1,4 +1,4 @@
-package com.angelina.salesregistration.serviceTest;
+package com.angelina.salesregistration.service;
 
 import com.angelina.salesregistration.dto.ClienteDTO;
 import com.angelina.salesregistration.dto.PedidoDTO;
@@ -10,6 +10,7 @@ import com.angelina.salesregistration.repository.ProdutoPedidoRepository;
 import com.angelina.salesregistration.restTemplate.RequestCustomer;
 import com.angelina.salesregistration.restTemplate.RequestProduct;
 import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
@@ -20,7 +21,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import static org.mockito.ArgumentMatchers.any;
 
@@ -116,30 +116,33 @@ public class SalesServiceTest {
         return pedido;
     }
 
-    //@Test
-    public void testParaPedidoComClienteNulo() throws Exception {
-        ClienteDTO clienteDTO = null;
+    @Test
+    public void testParaPedidoComClienteNulo(){
+        Exception exception = Assertions.assertThrows(
+                Exception.class,
+                () -> salesService.gravarPedido(carregarPedidoDTO()),
+                "Usuário não encontrado"
+        );
+        Assert.assertTrue(exception.getMessage().contains("Usuário não encontrado"));
+    }
 
-        Pedido pedidoComId = carregarPedidoSemId();
-        pedidoComId.setIdPedido(1);
-
-        Mockito.when(pedidoRepository.save(any())).thenReturn(pedidoComId);
-
+    @Test
+    public void testParaPedidoComProdutoNulo(){
         PedidoDTO pedidoDTO = carregarPedidoDTO();
 
         ClienteDTO clienteComId = carregarClienteSemId();
         clienteComId.setId(1);
 
-        ProdutoDTO produtoComID = carregarProdutoSemId();
-        produtoComID.setIdProduto(1);
-
         Mockito.when(requestCustomer.consultarClienteById(pedidoDTO.getIdCliente())).thenReturn(clienteComId);
-        Mockito.when(requestProduct.consultarProdutoById(produtoComID.getIdProduto())).thenReturn(produtoComID);
+        Mockito.when(requestProduct.consultarProdutoById(any())).thenReturn(new ProdutoDTO());
 
-        Pedido pedidoSalvo = salesService.gravarPedido(carregarPedidoDTO());
-
-        Assert.assertNull(clienteDTO);
-
+        Exception exception = Assertions.assertThrows(
+                Exception.class,
+                () -> salesService.gravarPedido(carregarPedidoDTO()),
+                "Produto não encontrado"
+        );
+        System.out.print(exception.getMessage());
+        Assert.assertTrue(exception.getMessage().contains("Produto não encontrado"));
     }
 
     @Test
@@ -152,7 +155,7 @@ public class SalesServiceTest {
         Pedido buscarPedido = salesService.buscarPedidoId(1);
 
         Assert.assertNotNull(buscarPedido);
-        Assert.assertEquals(Optional.of(1l), Optional.of(buscarPedido.getIdPedido()));
+        Assert.assertEquals(1l, Long.parseLong(buscarPedido.getIdPedido().toString()));
     }
 
     @Test
