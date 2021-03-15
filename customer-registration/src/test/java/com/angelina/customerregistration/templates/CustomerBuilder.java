@@ -1,4 +1,4 @@
-package com.angelina.customerregistration.templatesCustomer;
+package com.angelina.customerregistration.templates;
 
 import com.angelina.customerregistration.dto.ClienteDTO;
 

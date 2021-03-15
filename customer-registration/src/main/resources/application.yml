@@ -1,5 +1,5 @@
-server.port: 9090
-
+server:
+  port: 9090
 spring:
   application:
     name: customer-registration
@@ -11,8 +11,16 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
   jmx:
-    enabled: false
+    enabled: true
   datasource:
     url: jdbc:mysql://localhost:3306/microservico_cliente?allowPublicKeyRetrieval=true&sslMode=DISABLED
     username: root
     password: password
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hawtio,jolokia
+hawtio:
+  authenticationEnabled: false
+

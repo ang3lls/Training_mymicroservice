@@ -100,4 +100,17 @@ public class CustomerServiceTest {
         Assert.assertNotNull(clientes);
         Assert.assertEquals(listaClientes, clientes);
     }
+
+    @Test
+    public void validaCpfClienteTest(){
+        Cliente clienteComId = carregarClienteSemId();
+        clienteComId.setIdCliente(1);
+
+        Mockito.when(clienteRepository.save(carregarClienteSemId())).thenReturn(clienteComId);
+
+        boolean clienteValidaCpf = clienteService.validarCPF("47397074898");
+
+        Assert.assertTrue(clienteValidaCpf);
+        Assert.assertEquals("47397074898", clienteComId.getCpf());
+    }
 }
